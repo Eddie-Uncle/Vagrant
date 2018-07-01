@@ -16,8 +16,8 @@ Vagrant.configure("2") do |config|
 
       # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/main.yml"
-    ansible.playbook = "provisioning/centos_pkg.yml"
+    ansible.playbook = "../provisioning/main.yml"
+    ansible.playbook = "../provisioning/centos_pkg.yml"
     #ansible.playbook = "provisioning/centos_repo.yml"
     #ansible.playbook = "provisioning/centos_python.yml"
     end
@@ -39,8 +39,8 @@ Vagrant.configure("2") do |config|
 
    # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/main.yml"
-    ansible.playbook = "provisioning/centos_pkg.yml"
+    ansible.playbook = "../provisioning/main.yml"
+    ansible.playbook = "../provisioning/centos_pkg.yml"
     #ansible.playbook = "provisioning/centos_repo.yml"
     #ansible.playbook = "provisioning/centos_python.yml"
     end
@@ -63,8 +63,8 @@ Vagrant.configure("2") do |config|
 
      # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/main.yml"
-    ansible.playbook = "provisioning/centos_pkg.yml"
+    ansible.playbook = "../provisioning/main.yml"
+    ansible.playbook = "../provisioning/centos_pkg.yml"
     #ansible.playbook = "provisioning/centos_repo.yml"
     #ansible.playbook = "provisioning/centos_python.yml"
     end
