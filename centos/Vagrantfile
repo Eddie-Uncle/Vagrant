@@ -69,3 +69,28 @@ Vagrant.configure("2") do |config|
     #ansible.playbook = "provisioning/centos_python.yml"
     end
   end  
+
+  config.vm.define "snake08" do |snake08|
+    snake08.vm.box = "centos/7"
+    snake08.vm.hostname = 'snake08'
+    snake08.vm.box_url = "centos/7"
+
+    snake07.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.53"
+
+    snake07.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--name", "snake08"]
+      end
+    end   
+
+
+   # Enable provisioning with Ansible.
+config.vm.provision "ansible" do |ansible|
+  ansible.playbook = "provisioning/main.yml"
+  ansible.playbook = "provisioning/centos_pkg.yml"
+  #ansible.playbook = "provisioning/centos_repo.yml"
+  #ansible.playbook = "provisioning/centos_python.yml"
+  end
+end  
