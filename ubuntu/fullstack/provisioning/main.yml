@@ -1,0 +1,8 @@
+- hosts: all:servers
+  gather_facts: True
+  remote_user: vagrant
+  tasks:
+    - name: update all packages
+      apt:
+          update_cache: yes
+      become: true

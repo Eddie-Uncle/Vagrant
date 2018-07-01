@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "centos/7"
+  config.vm.network :public_network, ip: "192.168.1.56"
+  config.ssh.insert_key = false
+
+  config.vm.hostname = "snake06.local"
+  config.vm.provider :virtualbox do |v|
+    v.name = "snake06"
+    v.memory = 2048
+    v.cpus = 2
+  end
+
+  # Enable provisioning with Ansible.
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/main.yml"
+    ansible.playbook = "provisioning/centos_pkg.yml"
+    #ansible.playbook = "provisioning/centos_repo.yml"
+    #ansible.playbook = "provisioning/centos_python.yml"
+  end
+end
