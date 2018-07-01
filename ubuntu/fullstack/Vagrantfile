@@ -21,3 +21,4 @@ Vagrant.configure("2") do |config|
     #ansible.playbook = "provisioning/ubuntu_repo.yml"
     #ansible.playbook = "provisioning/ubuntu_python.yml"
     end
+end

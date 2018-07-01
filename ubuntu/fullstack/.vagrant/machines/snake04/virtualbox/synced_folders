@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/eddiesantos/VirtualBox VMs/VMs/ubuntu/fullstack","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/eddiesantos/VirtualBox VMs/Vagrant/ubuntu/fullstack","disabled":false,"__vagrantfile":true}}}
