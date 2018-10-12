@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     snake05.vm.hostname = 'snake05'
     snake05.vm.box_url = "centos/7"
     
-    snake05.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.50"
+    snake05.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.50"
 
     snake05.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
     snake06.vm.hostname = 'snake06'
     snake06.vm.box_url = "centos/7"
 
-    snake06.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.51"
+    snake06.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.51"
 
     snake06.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

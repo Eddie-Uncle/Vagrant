@@ -1,6 +1,7 @@
 ---
 - name: Install docker
   gather_facts: No
+  remote_user: vagrant
   hosts: all:servers
 
   tasks:

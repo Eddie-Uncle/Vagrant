@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Stopping vms"
-vagrant halt snake05 && vagrant halt snake06
+vagrant destroy snake05 -f && vagrant destroy snake06 -f
 if [ "$?" -eq 0 ]
 then
     echo "VMs have been shut down normally"

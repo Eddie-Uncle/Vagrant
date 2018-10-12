@@ -8,7 +8,7 @@
       become: true
     - name: Install CentOS Basic Packages
       yum:
-        name: [ "tcpdump", "mtr", "strace", "ntp", "git", "nmap", "wget", "telnet", 
+        name: [ "tcpdump", "vim", "mtr", "strace", "ntp", "git", "nmap", "wget", "telnet", 
           "net-tools", "elinks", "bind-utils", "sysstat", "binutils", "compat-libstdc++-33" ,
           "gcc", "gcc-c++", "glibc-devel", "glibc-headers", "libaio" ,
           "unixODBC", "unixODBC-devel", "libaio", "libaio-devel", "libgomp" ,

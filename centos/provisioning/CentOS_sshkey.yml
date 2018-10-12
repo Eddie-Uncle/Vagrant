@@ -1,0 +1,9 @@
+- hosts: snake05
+  gather_facts: True
+  tasks:
+   - name: Set authorized key taken from file
+     authorized_key:
+      user:  eddiesantos
+      state: present
+      key: "{{ lookup('file', '/Users/eddiesantos/.ssh/id_rsa.pub') }}"
+     become: true
