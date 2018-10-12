@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     snake05.vm.hostname = 'snake05'
     snake05.vm.box_url = "centos/7"
     
-    snake05.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.50"
+    snake05.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.50"
 
     snake05.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -16,10 +16,11 @@ Vagrant.configure("2") do |config|
 
       # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "../provisioning/main.yml"
-    ansible.playbook = "../provisioning/centos_pkg.yml"
-    #ansible.playbook = "provisioning/centos_repo.yml"
-    #ansible.playbook = "provisioning/centos_python.yml"
+    ansible.playbook = "provisioning/CentOS_docker.yml"
+    ansible.playbook = "provisioning/CentOS_hosts.yml"
+    ansible.playbook = "provisioning/CentOS_python.yml"
+    ansible.playbook = "provisioning/CentOS_repo.yml"
+    ansible.playbook = "provisioning/CentOS.yml"
     end
     
   config.vm.define "snake06" do |snake06|
@@ -27,11 +28,11 @@ Vagrant.configure("2") do |config|
     snake06.vm.hostname = 'snake06'
     snake06.vm.box_url = "centos/7"
 
-    snake06.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.51"
+    snake06.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.51"
 
     snake06.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--memory", 3072]
       v.customize ["modifyvm", :id, "--cpus", 1]
       v.customize ["modifyvm", :id, "--name", "snake06"]
       end
@@ -39,33 +40,10 @@ Vagrant.configure("2") do |config|
 
    # Enable provisioning with Ansible.
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "../provisioning/main.yml"
-    ansible.playbook = "../provisioning/centos_pkg.yml"
-    #ansible.playbook = "provisioning/centos_repo.yml"
-    #ansible.playbook = "provisioning/centos_python.yml"
+    ansible.playbook = "provisioning/CentOS_docker.yml"
+    ansible.playbook = "provisioning/CentOS_hosts.yml"
+    ansible.playbook = "provisioning/CentOS_python.yml"
+    ansible.playbook = "provisioning/CentOS_repo.yml"
+    ansible.playbook = "provisioning/CentOS.yml"
     end
-
-    config.vm.define "snake07" do |snake07|
-      snake07.vm.box = "centos/7"
-      snake07.vm.hostname = 'snake07'
-      snake07.vm.box_url = "centos/7"
-  
-      snake07.vm.network :public_network, bridge: "en0: Wi-Fi (AirPort)", ip: "192.168.0.52"
-  
-      snake07.vm.provider :virtualbox do |v|
-        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-        v.customize ["modifyvm", :id, "--memory", 2048]
-        v.customize ["modifyvm", :id, "--cpus", 1]
-        v.customize ["modifyvm", :id, "--name", "snake07"]
-        end
-      end   
-
-
-     # Enable provisioning with Ansible.
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "../provisioning/main.yml"
-    ansible.playbook = "../provisioning/centos_pkg.yml"
-    #ansible.playbook = "provisioning/centos_repo.yml"
-    #ansible.playbook = "provisioning/centos_python.yml"
-    end
-  end  
+end  

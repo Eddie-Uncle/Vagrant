@@ -1,0 +1,27 @@
+- hosts: all:servers
+  gather_facts: True
+  tasks:
+    - name: Updating all packages
+      apt:
+        name: '*'
+        state: latest
+      become: true
+    - name: Install Ubuntu Basic Packages
+      apt:
+        name: [ "tcpdump", "mtr", "strace", "ntp", "git", "nmap", "wget", "telnet", 
+          "net-tools", "elinks", "bind-utils", "sysstat" ]
+        state: latest
+      become: true
+    - name: Copy SSHD_Config
+      copy:
+        src: template/sshd_config
+        dest: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: 0644
+      become: true
+    - name: Ensure SSHD Restarted
+      service:
+        name: sshd 
+        state: restarted
+      become: true

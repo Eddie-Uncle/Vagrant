@@ -1,0 +1,31 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "snake08" do |snake08|
+    snake08.vm.box = "ubuntu/xenial64"
+    snake08.vm.hostname = 'snake08'
+    snake08.vm.box_url = "ubuntu/xenial64"
+    
+    snake08.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.60"
+
+    snake08.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 2048]
+      v.customize ["modifyvm", :id, "--cpus", 2]
+      v.customize ["modifyvm", :id, "--name", "snake08"]
+    end 
+  end
+    
+  config.vm.define "snake09" do |snake09|
+    snake09.vm.box = "ubuntu/xenial64"
+    snake09.vm.hostname = 'snake09'
+    snake09.vm.box_url = "ubuntu/xenial64"
+
+    snake09.vm.network :public_network, bridge: "wlp2s0: Wi-Fi (AirPort)", ip: "192.168.0.61"
+
+    snake09.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--memory", 3072]
+      v.customize ["modifyvm", :id, "--cpus", 1]
+      v.customize ["modifyvm", :id, "--name", "snake09"]
+      end
+  end
+end

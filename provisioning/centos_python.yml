@@ -1,8 +1,0 @@
-- hosts: snake08.local
-  gather_facts: True
-  remote_user: vagrant
-  tasks:
-    - name: Install CentOS Python3
-      yum:
-        name: [ "python36u", "python36u-pip", "python36u-devel" ]
-      become: true

@@ -1,9 +1,0 @@
-- hosts: all:servers
-  gather_facts: True
-  tasks:
-    - name: Install CentOS Epel-repo
-      yum:
-        name: [ "epel-release" ]
-    - name: Install CentOS IUS-repo
-      command: yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-      become: true

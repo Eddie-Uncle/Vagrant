@@ -1,0 +1,12 @@
+- hosts: all:servers
+  gather_facts: True
+  remote_user: vagrant
+  tasks:
+  - name: Copying Hosts file
+    copy: 
+      src: template/hosts
+      dest: /etc/hosts
+      mode: 0644
+      owner: root
+      group: root
+    become: true
