@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 echo "Stopping vms"
 vagrant destroy snake05 -f && vagrant destroy snake06 -f
 if [ "$?" -eq 0 ]
